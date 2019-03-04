@@ -7,7 +7,8 @@ module.exports = {
     filename: 'bundle.[hash].js'
   },
   devServer: {
-    port: 7890
+    port: 7890,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
@@ -21,7 +22,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
+            cacheDirectory: true,
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
       },

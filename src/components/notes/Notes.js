@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Note from './Note';
 
-function Dogs({ dogs }) {
-  const 
-}
- 
-    return (
-      <li key={note.title}>
-        <Note title={note.title} body={note.body} />
-      </li>
-    );
-  
+function Notes({ title, subtitle }) {
   return (
-    <ul>
-      {listOfNotes}
-    </ul>
+    <>
+      <h1>{ title }</h1>
+      {subtitle && <h2>{ subtitle }</h2>}
+    </>
   );
+}
 
 Notes.propTypes = {
-  notes: PropTypes.array.isRequired
-}
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string
+};
+
 export default Notes;
